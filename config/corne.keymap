@@ -88,9 +88,9 @@
         
         nav_layer {
             bindings = <
-                &none          &none             &none           &td_tog U_GAME      &none            &none           &kp K_REDO      &kp K_PASTE       &kp K_COPY        &kp K_CUT        &kp K_UNDO          &none
-                &none          &kp LWIN      	 &kp LALT        &kp LCTRL           &kp LSHIFT       &none           &CAPSLOCK       &kp LEFT_ARROW    &kp DOWN_ARROW    &kp UP_ARROW     &kp RIGHT_ARROW     &none
-                &none          &none             &none           &td_tog U_NUM       &td_tog U_NAV    &none           &kp INSERT      &kp HOME          &kp PAGE_DOWN     &kp PAGE_UP      &kp END             &none
+                &none          &none             &none           &td_tog U_GAME      &none            &none           &kp K_REDO        &kp K_PASTE       &kp K_COPY        &kp K_CUT        &kp K_UNDO          &none
+                &none          &kp LWIN      	 &kp LALT        &kp LCTRL           &kp LSHIFT       &none           &kp CAPSLOCK      &kp LEFT_ARROW    &kp DOWN_ARROW    &kp UP_ARROW     &kp RIGHT_ARROW     &none
+                &none          &none             &none           &td_tog U_NUM       &td_tog U_NAV    &none           &kp INSERT        &kp HOME          &kp PAGE_DOWN     &kp PAGE_UP      &kp END             &none
                 &none &td_tog U_NAV &none &kp ENTER &kp BACKSPACE &kp DELETE
             >;
         };
