@@ -48,7 +48,7 @@
             label           = "TAP_DANCE_TOGGLE_BASE";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
-            bindings        = <&none>, <&tog U_BASE>;
+            bindings        = <&none>, <&to U_BASE>;
         };
 		
 		td_tog_nav: tap_dance_toggle_nav {
@@ -88,7 +88,7 @@
             label           = "TAP_DANCE_TOGGLE_NUM";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
-            bindings        = <&none>, <&tog U_NUM>;
+            bindings        = <&none>, <&to U_NUM>;
         };
 		
 		td_tog_sym: tap_dance_toggle_sym {
@@ -140,7 +140,7 @@
             timeout-ms = <50>;
             key-positions = <1 2>;
 			layers = <8 9>;
-            bindings = <&tog U_BASE>;
+            bindings = <&to U_BASE>;
         };
     };
 
@@ -235,7 +235,7 @@
 		
 		game_layer {
             bindings = <
-                &none          &td_tog_game       &kp Q             &kp W             &kp E          &kp R           &kp T             &kp Y      &kp U      &kp I        &kp O        &none
+                &none          &td_tog_base       &kp Q             &kp W             &kp E          &kp R           &kp T             &kp Y      &kp U      &kp I        &kp O        &none
                 &none          &kp LSHIFT         &kp A             &kp S             &kp D          &kp F           &kp G             &kp H      &kp J      &kp K        &kp L        &none
                 &none          &kp LCTRL          &kp Z             &kp X             &kp C          &kp V           &kp B             &kp N      &kp M      &kp COMMA    &kp PERIOD   &none
                 &kp ESC &kp SPACE &kp TAB &kp ENTER &kp BACKSPACE &kp DELETE
