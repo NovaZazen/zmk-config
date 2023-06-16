@@ -32,7 +32,7 @@
             bindings        = <&kp>, <&kp>;
         };
 
-		u_lt: layer_tap {
+	u_lt: layer_tap {
             compatible      = "zmk,behavior-hold-tap";
             label           = "LAYER_TAP";
             #binding-cells  = <2>;
@@ -40,73 +40,73 @@
             quick-tap-ms    = <0>;
             flavor          = "tap-preferred";
             bindings        = <&mo>, <&kp>;
-		};
+	};
 		
-		td_tog_nav: tap_dance_toggle_nav {
+	td_tog_nav: tap_dance_toggle_nav {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_NAV";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_NAV>;
         };
 		
-		td_tog_mouse: tap_dance_toggle_mouse {
+	td_tog_mouse: tap_dance_toggle_mouse {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_MOUSE";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_MOUSE>;
         };
 		
-		td_tog_button: tap_dance_toggle_button {
+	td_tog_button: tap_dance_toggle_button {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_BUTTON";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_BUTTON>;
         };
 		
-		td_tog_media: tap_dance_toggle_media {
+	td_tog_media: tap_dance_toggle_media {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_MEDIA";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_MEDIA>;
         };
 		
-		td_tog_num: tap_dance_toggle_num {
+	td_tog_num: tap_dance_toggle_num {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_NUM";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_NUM>;
         };
 		
-		td_tog_sym: tap_dance_toggle_sym {
+	td_tog_sym: tap_dance_toggle_sym {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_SYM";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_SYM>;
         };
 		
-		td_tog_fun: tap_dance_toggle_fun {
+	td_tog_fun: tap_dance_toggle_fun {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_FUN";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_FUN>;
         };
 		
-		td_tog_game: tap_dance_toggle_game {
+	td_tog_game: tap_dance_toggle_game {
             compatible      = "zmk,behavior-tap-dance";
-            label           = "TAP_DANCE_TOGGLE";
+            label           = "TAP_DANCE_TOGGLE_GAME";
             #binding-cells  = <0>;
             tapping-term-ms = <200>;
             bindings        = <&none>, <&tog U_GAME>;
         };
 		
-		u_lbut: layer_button {
+	u_lbut: layer_button {
             compatible      = "zmk,behavior-hold-tap";
             label           = "LAYER_BUTTON";
             #binding-cells  = <2>;
@@ -114,7 +114,7 @@
             quick-tap-ms    = <0>;
             flavor          = "tap-preferred";
             bindings        = <&mo>, <&kp>;
-		};
+	};
     };
 
     keymap {
@@ -206,7 +206,7 @@
             >;
         };
 		
-		game_layer {
+	game_layer {
             bindings = <
                 &none          &td_tog_game       &kp Q             &kp W             &kp E          &kp R           &kp T             &kp Y      &kp U      &kp I        &kp O       &none
                 &none          &kp LSHIFT         &kp A             &kp S             &kp D          &kp F           &kp G             &kp H      &kp J      &kp K        &kp L       &none
