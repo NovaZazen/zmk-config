@@ -18,6 +18,7 @@
 #define U_NUM     5
 #define U_SYM     6
 #define U_FUN     7
+#define U_GAME    8
 
 / {
     behaviors {
@@ -40,6 +41,23 @@
             flavor          = "tap-preferred";
             bindings        = <&mo>, <&kp>;
 		};
+		
+		td_tog: tap_dance_toggle {
+            compatible      = "zmk,behavior-tap-dance";
+            label           = "TAP_DANCE_TOGGLE";
+            #binding-cells  = <0>;
+            tapping-term-ms = <200>;
+            bindings        = <&none>, <&tog>;
+        };
+		u_lbut: layer_button {
+            compatible      = "zmk,behavior-hold-tap";
+            label           = "LAYER_BUTTON";
+            #binding-cells  = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms    = <0>;
+            flavor          = "tap-preferred";
+            bindings        = <&mo>, <&kp>;
+		};
     };
 
     keymap {
@@ -49,64 +67,95 @@
         base_layer {
             /*
                 ------------------------------------------------------------------------------------------------------
-                |   | Q | W | F | P | B | J | L | U | Y | ' |   |
-                |   | LWIN(A) | LALT(R) | LCTRL(S) | LSHIFT(T) | G | M | RSHIFT(N) | RCTRL(E) | RALT(I) | RWIN(O) |   |
-                |   | U_BUTTON(Z) | X | C | D | V | K | H | , | . | U_BUTTON(SLASH) |   |
-                | MEDIA(ESC) | NAV(SPACE) | MOUSE(TAB) | SYM(ENTER) | NUM(BACKSPACE) | FUN(DELETE) |
+                |   |    Q    |    W    |     F    |     P     | B | J |    L      |     U    |    Y    |       '         |   |
+				
+                |   | LWIN(A) | LALT(R) | LCTRL(S) | LSHIFT(T) | G | M | RSHIFT(N) | RCTRL(E) | RALT(I) |     RWIN(O)     |   |
+				
+                |   | U_BUTTON(Z) |  X  |     C    |     D     | V | K |    H      |     ,    |    .    | U_BUTTON(SLASH) |   |
+				
+                            | MEDIA(ESC) | NAV(SPACE) | MOUSE(TAB) | SYM(ENTER) | NUM(BACKSPACE) | FUN(DELETE) |
                 ------------------------------------------------------------------------------------------------------
             */
             bindings = <
-                &none          &kp Q             &kp W             &kp F             &kp P          &kp B          &kp J             &kp L          &kp U          &kp Y            &kp SQT &none
-                &none          &u_hm LWIN A      &u_hm LALT R      &u_hm LCTRL S     &u_hm LSHIFT T &kp G           &kp M           &u_hm RSHIFT N    &u_hm RCTRL E  &u_hm RALT I   &u_hm RWIN O     &none
-                &none          &u_lt U_BUTTON Z  &kp X             &kp C             &kp D          &kp V           &kp K             &kp H          &kp COMMA      &kp DOT          &u_lt U_BUTTON SLASH &none
+                &none          &kp Q               &kp W             &kp F             &kp P          &kp B           &kp J             &kp L             &kp U          &kp Y            &kp SQT                  &none
+                &none          &u_hm LWIN A        &u_hm LALT R      &u_hm LCTRL S     &u_hm LSHIFT T &kp G           &kp M             &u_hm RSHIFT N    &u_hm RCTRL E  &u_hm RALT I     &u_hm RWIN O             &none
+                &none          &u_lbut U_BUTTON Z  &kp X             &kp C             &kp D          &kp V           &kp K             &kp H             &kp COMMA      &kp PERIOD       &u_lbut U_BUTTON SLASH   &none
                 &u_lt U_MEDIA ESC &u_lt U_NAV SPACE &u_lt U_MOUSE TAB &u_lt U_SYM ENTER &u_lt U_NUM BACKSPACE &u_lt U_FUN DELETE
             >;
         };
         
         
-        /* Uncomment these layers and fill in the bindings when you want to use them.
         
         nav_layer {
             bindings = <
-                // bindings for nav layer
+                &none          &none             &none           &td_tog U_GAME      &none            &none           &kp K_REDO      &kp K_PASTE       &kp K_COPY        &kp K_CUT        &kp K_UNDO          &none
+                &none          &kp LWIN      	 &kp LALT        &kp LCTRL           &kp LSHIFT       &none           &CAPSLOCK       &kp LEFT_ARROW    &kp DOWN_ARROW    &kp UP_ARROW     &kp RIGHT_ARROW     &none
+                &none          &none             &none           &td_tog U_NUM       &td_tog U_NAV    &none           &kp INSERT      &kp HOME          &kp PAGE_DOWN     &kp PAGE_UP      &kp END             &none
+                &none &td_tog U_NAV &none &kp ENTER &kp BACKSPACE &kp DELETE
             >;
         };
         
         mouse_layer {
             bindings = <
-                // bindings for mouse layer
+                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
+                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
+                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
+                &none &none &td_tog U_MOUSE &none &none &none
             >;
         };
         
         button_layer {
             bindings = <
-                // bindings for button layer
+                &none          &kp K_UNDO        &kp K_CUT         &kp K_COPY        &kp K_PASTE    &kp K_REDO      &kp K_REDO        &kp K_PASTE    &kp K_COPY     &kp K_CUT        &kp K_UNDO            &none
+                &none          &kp LWIN          &kp LALT          &kp LCTRL         &kp LSHIFT     &none           &none             &kp RSHIFT     &kp RCTRL      &kp RALT         &kp RWIN              &none
+                &none          &kp K_UNDO        &kp K_CUT         &kp K_COPY        &kp K_PASTE    &kp K_REDO      &kp K_REDO        &kp K_PASTE    &kp K_COPY     &kp K_CUT        &kp K_UNDO            &none
+                &none &none &none &none &none &none
             >;
         };
         
         media_layer {
             bindings = <
-                // bindings for media layer
+                &none          &none             &none           &td_tog U_GAME      &none              &none           &kp K_REDO           &kp K_PASTE       &kp K_COPY           &kp K_CUT            &kp K_UNDO          &none
+                &none          &kp LWIN      	 &kp LALT        &kp LCTRL           &kp LSHIFT         &none           &ext_power EP_TOG    &kp C_PREV        &kp C_VOLUME_DOWN    &kp C_VOLUME_UP      &kp C_NEXT          &none
+                &none          &none             &none           &td_tog U_FUN       &td_tog U_MEDIA    &none           &out OUT_TOG         &bt BT_SEL 0      &bt BT_SEL 1         &bt BT_SEL 2         &bt BT_SEL 3        &none
+                &td_tog U_MEDIA &none &none &kp C_STOP &kp C_PLAY_PAUSE &kp C_MUTE
             >;
         };
         
         num_layer {
             bindings = <
-                // bindings for num layer
+                &none          &kp LEFT_BRACKET   &kp NUMBER_7      &kp NUMBER_8       &kp NUMBER_9      &kp RIGHT_BRACKET     &none      &none            &td_tog U_GAME   &none        &none        &none
+                &none          &kp SEMICOLON      &kp NUMBER_4      &kp NUMBER_5       &kp NUMBER_6      &kp EQUAL             &none      &kp RSHIFT       &kp RCTRL        &kp RALT     &kp RWIN     &none
+                &none          &kp GRAVE          &kp NUMBER_1      &kp NUMBER_2       &kp NUMBER_3      &kp BACKSLASH         &none      &td_tog U_NUM    &td_tog U_NAV    &none        &none        &none
+                &kp PERIOD &kp NUMBER_0 &kp MINUS &none &td_tog U_NUM &none
             >;
         };
         
         sym_layer {
             bindings = <
-                // bindings for sym layer
+                &none          &kp LEFT_BRACE    &kp AMPERSAND      &kp ASTERISK      &kp LEFT_PARENTHESIS     &kp RIGHT_BRACE     &none      &none            &td_tog U_GAME     &none        &none        &none
+                &none          &kp COLON         &kp DOLLAR         &kp PERCENT       &kp CARET                &kp PLUS            &none      &kp RSHIFT       &kp RCTRL          &kp RALT     &kp RWIN     &none
+                &none          &kp TILDE         &kp EXCLAMATION    &kp AT_SIGN       &kp HASH                 &kp PIPE            &none      &td_tog U_SYM    &td_tog U_MOUSE    &none        &none        &none
+                &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp UNDERSCORE &td_tog U_SYM &none &none
             >;
         };
         
         fun_layer {
             bindings = <
-                // bindings for fun layer
+                &none          &kp F12     &kp F7      &kp F8       &kp F9      &kp PRINTSCREEN      &none      &none            &td_tog U_GAME   &none        &none        &none
+                &none          &kp F11     &kp F4      &kp F5       &kp F6      &kp SCROLLLOCK       &none      &kp RSHIFT       &kp RCTRL        &kp RALT     &kp RWIN     &none
+                &none          &kp F10     &kp F1      &kp F2       &kp F3      &kp PAUSEBREAK       &none      &td_tog U_FUN    &td_tog MEDIA    &none        &none        &none
+                &kp K_APPLICATION &kp SPACE &kp TAB &none &none &td_tog U_FUN
             >;
         };
-        */
+		
+		game_layer {
+            bindings = <
+                &none          &td_tog U_GAME     &kp Q             &kp W             &kp E          &kp R           &kp T             &kp Y      &kp U      &kp I        &kp O       &none
+                &none          &kp LSHIFT         &kp A             &kp S             &kp D          &kp F           &kp G             &kp H      &kp J      &kp K        &kp L       &none
+                &none          &kp LCTRL          &kp Z             &kp X             &kp C          &kp V           &kp B             &kp N      &kp M      &kp COMMA    &kp PERIOD   &none
+                &kp ESC &kp SPACE &kp TAB &u_lt U_SYM ENTER &u_lt U_NUM BACKSPACE &u_lt U_FUN DELETE
+            >;
+        };
     };
 };
