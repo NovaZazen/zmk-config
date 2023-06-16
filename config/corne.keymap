@@ -154,9 +154,9 @@
         
         mouse_layer {
             bindings = <
-                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
-                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
-                &none        &none      &none      &none      &none      &none            &none     &none      &none      &none       &none      &none
+                &none        &none         &none         &none            &none              &none            &none     &none      &none      &none       &none      &none
+                &none        &kp LWIN      &kp LALT      &kp LCTRL        &kp LSHIFT         &none            &none     &none      &none      &none       &none      &none
+                &none        &none         &none         &td_tog_sym      &td_tog_mouse      &none            &none     &none      &none      &none       &none      &none
                 &none &none &td_tog_mouse &none &none &none
             >;
         };
