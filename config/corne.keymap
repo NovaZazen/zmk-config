@@ -142,9 +142,9 @@
         
         fun_layer {
             bindings = <
-                &none          &kp F12     &kp F7      &kp F8       &kp F9      &kp PRINTSCREEN      &none      &none            &td_tog U_GAME   &none        &none        &none
-                &none          &kp F11     &kp F4      &kp F5       &kp F6      &kp SCROLLLOCK       &none      &kp RSHIFT       &kp RCTRL        &kp RALT     &kp RWIN     &none
-                &none          &kp F10     &kp F1      &kp F2       &kp F3      &kp PAUSE_BREAK      &none      &td_tog U_FUN    &td_tog MEDIA    &none        &none        &none
+                &none          &kp F12     &kp F7      &kp F8       &kp F9      &kp PRINTSCREEN      &none      &none            &td_tog U_GAME     &none        &none        &none
+                &none          &kp F11     &kp F4      &kp F5       &kp F6      &kp SCROLLLOCK       &none      &kp RSHIFT       &kp RCTRL          &kp RALT     &kp RWIN     &none
+                &none          &kp F10     &kp F1      &kp F2       &kp F3      &kp PAUSE_BREAK      &none      &td_tog U_FUN    &td_tog U_MEDIA    &none        &none        &none
                 &kp K_APPLICATION &kp SPACE &kp TAB &none &none &td_tog U_FUN
             >;
         };
